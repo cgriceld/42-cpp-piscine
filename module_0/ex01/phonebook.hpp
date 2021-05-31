@@ -13,7 +13,7 @@ public:
 	int		geti(void) const;
 	void	search(void) const;
 	void	seti(void);
-	Contact	*get_contact(int _i);
+	Contact	&get_contact(int _i);
 
 private:
 

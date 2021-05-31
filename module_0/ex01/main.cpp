@@ -2,21 +2,25 @@
 #include <iostream>
 #include <cctype>
 
-static int check_index(std::string index)
+static int check_index(std::string index, int contacts)
 {
+	int i;
+
 	if (index.length() != 1)
 		return (-1);
 	if (!std::isdigit(index[0]))
 		return (-1);
-	return (index[0] == '9' ? -1 : std::stoi(index));
+	i = std::stoi(index);
+	return (i > contacts ? -1 : i);
 }
 
 int main(void)
 {
 	class Phonebook book;
 	std::string command;
+	int i;
 
-	std::cout << "ADD: to add contact, SEARCH: to search contacts, EXIT: to exit" << std::endl;
+	std::cout << "ADD: to add contact, SEARCH: to search contacts, EXIT: to exit (case matters)" << std::endl;
 	while (1)
 	{
 		std::cout << "Type command : ";
@@ -28,7 +32,7 @@ int main(void)
 			else
 			{
 				book.seti();
-				book.get_contact(book.geti() - 1)->add();
+				book.get_contact(book.geti() - 1).add();
 			}
 		}
 		else if (!command.compare("SEARCH"))
@@ -40,11 +44,11 @@ int main(void)
 				book.search();
 				std::cout << "Choose one of above indexes: ";
 				std::getline(std::cin, command);
-				int i = check_index(command);
+				i = check_index(command, book.geti() - 1);
 				if (i < 0)
 					std::cout << "Wrong index" << std::endl;
 				else
-					book.get_contact(i)->print_full();
+					book.get_contact(i).print_full();
 			}
 		}
 		else if (!command.compare("EXIT"))

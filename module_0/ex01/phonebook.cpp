@@ -12,9 +12,9 @@ void Phonebook::seti(void)
 	this->_i++;
 }
 
-Contact *Phonebook::get_contact(int _i)
+Contact &Phonebook::get_contact(int _i)
 {
-	return (&(this->_info[_i]));
+	return (this->_info[_i]);
 }
 
 void Phonebook::search(void) const
