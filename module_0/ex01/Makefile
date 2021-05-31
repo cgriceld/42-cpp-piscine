@@ -1,9 +1,9 @@
 NAME = phonebook
 
 CC = clang++
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = phonebook.cpp
+SRC = phonebook.cpp main.cpp contact.cpp
 OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp
