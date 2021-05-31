@@ -1,0 +1,7 @@
+class Pony
+{
+public:
+	
+private:
+	
+};

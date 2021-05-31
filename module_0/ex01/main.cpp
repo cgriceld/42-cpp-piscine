@@ -21,10 +21,9 @@ int main(void)
 	int i;
 
 	std::cout << "ADD: to add contact, SEARCH: to search contacts, EXIT: to exit (case matters)" << std::endl;
-	while (1)
+	std::cout << "Type command : ";
+	while (std::getline(std::cin, command))
 	{
-		std::cout << "Type command : ";
-		std::getline(std::cin, command);
 		if (!command.compare("ADD"))
 		{
 			if (book.geti() == 8)
@@ -52,9 +51,11 @@ int main(void)
 			}
 		}
 		else if (!command.compare("EXIT"))
-			break;
+			exit(EXIT_SUCCESS);
 		else
 			std::cout << "Ambiguous command, try again" << std::endl;
+		std::cout << "Type command : ";
 	}
+	std::cout << std::endl;
 	return (0);
 }
