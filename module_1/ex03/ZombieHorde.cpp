@@ -9,7 +9,7 @@ ZombieHorde::ZombieHorde(int N) : _n(N)
 		for (int i = 0; i < this->_n; i++)
 			this->_wave[i].set_name(names[rand() % 6]);
 	}
-	catch (const std::exception &ba)
+	catch (const std::bad_alloc &ba)
 	{
 		std::cerr << ba.what() << std::endl;
 		this->_wave = NULL;
