@@ -9,14 +9,20 @@ int main(void)
 
 	ZombieEvent Frank;
 	Zombie *Paul = Frank.newZombie("runner");
-	Paul->announce();
-	delete Paul;
+	if (Paul)
+	{
+		Paul->announce();
+		delete Paul;
+	}
 	std::cout << std::endl;
 
 	Frank.setZombieType("agressive");
 	Zombie *Tom = Frank.newZombie("bloater");
-	Tom->announce();
-	delete Tom;
+	if (Tom)
+	{
+		Tom->announce();
+		delete Tom;
+	}
 	std::cout << std::endl;
 
 	srand(time(0));

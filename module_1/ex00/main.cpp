@@ -4,7 +4,15 @@ static void ponyOnTheHeap(void)
 {
 	Pony *pony;
 
-	pony = new Pony("heap");
+	try
+	{
+		pony = new Pony("heap");
+	}
+	catch (const std::bad_alloc &ba)
+	{
+		std::cerr << "No space for new pony : " << ba.what() << std::endl;
+		return;
+	}
 	pony->introduce();
 	delete pony;
 }

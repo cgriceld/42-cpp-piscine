@@ -4,7 +4,7 @@ Zombie::Zombie(std::string type, std::string name) : _type(type), _name(name) {}
 
 Zombie::~Zombie()
 {
-	std::cout << "Zombie " << this->_type << " " << this->_name << " is dead now... again..." << std::endl;
+	std::cout << "Zombie " << this->_type << " " << this->_name << " is dead now...kind of..." << std::endl;
 }
 
 void Zombie::announce(void) const

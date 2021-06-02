@@ -20,6 +20,14 @@ Zombie* ZombieEvent::newZombie(std::string name) const
 {
 	Zombie *zomb;
 
-	zomb = new Zombie(this->_type, name);
+	try
+	{
+		zomb = new Zombie(this->_type, name);
+	}
+	catch (const std::bad_alloc &ba)
+	{
+		std::cerr << "No space for new zombie : " << ba.what() << std::endl;
+		zomb = NULL;
+	}
 	return (zomb);
 }
