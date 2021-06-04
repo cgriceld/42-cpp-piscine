@@ -1,6 +1,8 @@
 #include "contact.hpp"
-#include <iostream>
-#include <iomanip>
+
+Contact::Contact() {};
+
+Contact::~Contact() {};
 
 void Contact::print_short(void) const
 {

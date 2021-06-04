@@ -6,9 +6,8 @@
 class Phonebook
 {
 public:
-
-	Phonebook() : _i(0) {};
-	~Phonebook() {};
+	Phonebook();
+	~Phonebook();
 
 	int		geti(void) const;
 	void	search(void) const;
@@ -16,7 +15,6 @@ public:
 	Contact	&get_contact(int _i);
 
 private:
-
 	int _i;
 	Contact _info[8];
 };

@@ -2,20 +2,20 @@
 # define CONTACT_HPP
 
 #include <string>
+#include <iostream>
+#include <iomanip>
 
 class Contact
 {
 public:
-
-	Contact() {};
-	~Contact() {};
+	Contact();
+	~Contact();
 
 	void add(void);
 	void print_short(void) const;
 	void print_full(void) const;
 
 private:
-
 	std::string _firstname;
 	std::string _lastname;
 	std::string _nickname;

@@ -1,5 +1,4 @@
 #include "phonebook.hpp"
-#include <iostream>
 #include <cctype>
 
 static int check_index(std::string index, int contacts)
@@ -41,7 +40,7 @@ int main(void)
 			else
 			{
 				book.search();
-				std::cout << "Choose one of above indexes: ";
+				std::cout << "Choose one of above indexes : ";
 				std::getline(std::cin, command);
 				i = check_index(command, book.geti() - 1);
 				if (i < 0)

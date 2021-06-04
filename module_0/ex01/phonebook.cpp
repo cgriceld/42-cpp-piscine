@@ -1,6 +1,8 @@
 #include "phonebook.hpp"
-#include <iostream>
-#include <iomanip>
+
+Phonebook::Phonebook() : _i(0) {};
+
+Phonebook::~Phonebook() {};
 
 int Phonebook::geti(void) const
 {
@@ -19,6 +21,7 @@ Contact &Phonebook::get_contact(int _i)
 
 void Phonebook::search(void) const
 {
+	std::cout << "     Index|First Name| Last Name|  Nickname|" << std::endl;
 	for (int i = 0; i < this->_i; i++)
 	{
 		std::cout << std::setw(10) << i << "|";

@@ -1,9 +1,9 @@
-NAME = phonebook
+NAME = replace
 
 CC = clang++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = phonebook.cpp main.cpp contact.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp
@@ -19,6 +19,7 @@ clean:
 
 fclean: clean
 	@/bin/rm -f $(NAME)
+	@/bin/rm -f *.replace
 
 re: fclean all
 

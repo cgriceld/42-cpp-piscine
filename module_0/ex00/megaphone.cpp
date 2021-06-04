@@ -1,11 +1,6 @@
 #include <iostream>
 #include <cctype>
 
-/*
-** Displays "noise" when program is run without arguments,
-** otherwise displays argument in upper case.
-*/
-
 int main(int argc, char **argv)
 {
 	if (argc == 1)
@@ -19,6 +14,5 @@ int main(int argc, char **argv)
 		}
 		std::cout << std::endl;
 	}
-
 	return (0);
 }
