@@ -5,7 +5,7 @@ _energy_points(50), _max_energy_points(50), _level(1), _melee_attack(20), _range
 _armor_damage(3), _name("Jack")
 {
 	std::cout << bold_green << "No input data..." << cancel << std::endl;
-	this->intro();
+	this->set_up();
 }
 
 ScavTrap::ScavTrap(const std::string &name) : _hit_points(100), _max_hit_points(100), \
@@ -13,19 +13,25 @@ _energy_points(50), _max_energy_points(50), _level(1), _melee_attack(20), _range
 _armor_damage(3), _name(name)
 {
 	std::cout << bold_green << "Input data processing..." << cancel << std::endl;
-	this->intro();
+	this->set_up();
 };
 
 ScavTrap::ScavTrap(const ScavTrap &robot)
 {
 	std::cout << bold_green << "Copying input data..." << cancel << std::endl;
 	*this = robot;
-	this->intro();
+	this->set_up();
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << yellow <<  _name << " : 'I'll stop talking when I'm dead!'" << cancel << std::endl;
+	std::cout << yellow <<  _name << " : I'll stop talking when I'm dead!" << cancel << std::endl;
+}
+
+void ScavTrap::set_up(void) const
+{
+	this->intro();
+	std::srand(time(0));
 }
 
 void ScavTrap::intro(void) const
@@ -88,7 +94,7 @@ void ScavTrap::takeDamage(unsigned int amount)
 		if (_hit_points > tmp)
 		{
 			_hit_points -= tmp;
-			std::cout << yellow <<  _name << " : Ow hohoho, that hurts! Yipes! *current XP: " << _hit_points;
+			std::cout << yellow <<  _name << " : Ow hohoho, that hurts! Yipes! *current XP: " << _hit_points << "*";
 		}
 		else
 		{
@@ -106,7 +112,7 @@ void ScavTrap::beRepaired(unsigned int amount)
 	else
 	{
 		_hit_points = amount >= _max_hit_points ? _max_hit_points : _hit_points + amount;
-		std::cout << yellow <<  _name << " : Health over here! *current XP: " << _hit_points;
+		std::cout << yellow <<  _name << " : Health over here! *current XP: " << _hit_points << "*";
 	}
 	std::cout << cancel << std::endl;
 }

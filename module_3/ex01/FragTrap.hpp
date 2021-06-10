@@ -20,6 +20,7 @@ public:
 
 	FragTrap &operator = (const FragTrap &robot);
 	void intro(void) const;
+	void set_up(void) const;
 	void attack(std::string &type, const std::string &target) const;
 	void rangedAttack(std::string const &target) const;
 	void meleeAttack(std::string const &target) const;

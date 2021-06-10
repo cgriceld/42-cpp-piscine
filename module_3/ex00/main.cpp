@@ -2,8 +2,6 @@
 
 int main(void)
 {
-	std::srand(time(0));
-
 	FragTrap claptrap("Claptrap");
 	std::cout << "-------------------\n";
 	FragTrap dflt;

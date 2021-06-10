@@ -5,7 +5,7 @@ _energy_points(100), _max_energy_points(100), _level(1), _melee_attack(30), _ran
 _armor_damage(5), _name("Wall-E")
 {
 	std::cout << bold_green << "No input data..." << cancel << std::endl;
-	this->intro();
+	this->set_up();
 }
 
 FragTrap::FragTrap(const std::string &name) : _hit_points(100), _max_hit_points(100), \
@@ -13,19 +13,25 @@ _energy_points(100), _max_energy_points(100), _level(1), _melee_attack(30), _ran
 _armor_damage(5), _name(name)
 {
 	std::cout << bold_green << "Input data processing..." << cancel << std::endl;
-	this->intro();
-};
+	this->set_up();
+}
 
 FragTrap::FragTrap(const FragTrap &robot)
 {
 	std::cout << bold_green << "Copying input data..." << cancel << std::endl;
 	*this = robot;
-	this->intro();
+	this->set_up();
 }
 
 FragTrap::~FragTrap()
 {
 	std::cout << yellow <<  _name << " system shut down... *sad beep*" << cancel << std::endl;
+}
+
+void FragTrap::set_up(void) const
+{
+	this->intro();
+	std::srand(time(0));
 }
 
 void FragTrap::intro(void) const
@@ -54,7 +60,7 @@ void FragTrap::attack(std::string &type, const std::string &target) const
 	if (_hit_points)
 	{
 		std::cout << yellow << "FR4G-TP " << _name << " attacks " << target << " at " << type << ", causing " << \
-		(!target.compare("range") ? _ranged_attack : _melee_attack) << " points of damage! *furious beep*\n";
+		(!target.compare("range") ? _ranged_attack : _melee_attack) << " points of damage! *furious beep*";
 	}
 	else
 		std::cout << red << "FR4G-TP " << _name << " is powerless because it's damaged, needs repair... *broken beep*";

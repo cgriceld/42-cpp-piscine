@@ -3,8 +3,7 @@
 
 int main(void)
 {
-	std::srand(time(0));
-
+	std::cout << "\033[1;36m PART 1 \033[0m\n\n";
 	{
 		FragTrap claptrap("Claptrap");
 		std::cout << "-------------------\n";
@@ -52,6 +51,7 @@ int main(void)
 		dflt.meleeAttack("Zombie");
 		std::cout << "-------------------\n";
 	}
+	std::cout << "\n\033[1;36m PART 2 \033[0m\n\n";
 	{
 		ScavTrap claptrap("Claptrap");
 		std::cout << "-------------------\n";
