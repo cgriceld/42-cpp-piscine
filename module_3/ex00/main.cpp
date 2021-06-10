@@ -47,6 +47,8 @@ int main(void)
 	std::cout << "-------------------\n";
 	dflt.takeDamage(60);
 	std::cout << "-------------------\n";
+	dflt.meleeAttack("Zombie");
+	std::cout << "-------------------\n";
 
 	return (0);
 }

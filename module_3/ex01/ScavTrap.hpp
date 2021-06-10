@@ -1,5 +1,5 @@
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 #include <string>
 #include <iostream>
@@ -10,22 +10,22 @@
 #define green "\033[0;32m"
 #define bold_green "\033[1;32m"
 
-class FragTrap
+class ScavTrap
 {
 public:
-	FragTrap();
-	FragTrap(const std::string &name);
-	FragTrap(const FragTrap &robot);
-	~FragTrap();
+	ScavTrap();
+	ScavTrap(const std::string &name);
+	ScavTrap(const ScavTrap &robot);
+	~ScavTrap();
 
-	FragTrap &operator = (const FragTrap &robot);
+	ScavTrap &operator = (const ScavTrap &robot);
 	void intro(void) const;
 	void attack(std::string &type, const std::string &target) const;
 	void rangedAttack(std::string const &target) const;
 	void meleeAttack(std::string const &target) const;
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-	void vaulthunter_dot_exe(std::string const &target);
+	void challengeNewcomer();
 
 private:
 	unsigned int _hit_points;
