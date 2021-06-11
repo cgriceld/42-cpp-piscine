@@ -5,13 +5,12 @@ int main(void)
 {
 	std::cout << "\033[1;36m PART 1 \033[0m\n\n";
 	{
-		FragTrap claptrap("Claptrap");
+		FragTrap claptrap("Rio");
 		std::cout << "-------------------\n";
 		FragTrap dflt;
 		std::cout << "-------------------\n";
 		FragTrap tallneck(dflt);
 		std::cout << "-------------------\n";
-
 		dflt.beRepaired(42);
 		std::cout << "-------------------\n";
 		dflt.meleeAttack("Zombie");
@@ -53,13 +52,12 @@ int main(void)
 	}
 	std::cout << "\n\033[1;36m PART 2 \033[0m\n\n";
 	{
-		ScavTrap claptrap("Claptrap");
+		ScavTrap claptrap("Rio");
 		std::cout << "-------------------\n";
 		ScavTrap dflt;
 		std::cout << "-------------------\n";
 		ScavTrap tallneck(dflt);
 		std::cout << "-------------------\n";
-
 		dflt.beRepaired(42);
 		std::cout << "-------------------\n";
 		dflt.meleeAttack("Zombie");
@@ -101,9 +99,16 @@ int main(void)
 		dflt.meleeAttack("Zombie");
 		std::cout << "-------------------\n";
 	}
+	std::cout << "\n\033[1;36m PART 3 \033[0m\n\n";
 	{
 		ClapTrap clap;
-		
+		std::cout << "-------------------\n";
+		clap.meleeAttack("Boo");
+		std::cout << "-------------------\n";
+		clap.beRepaired(21);
+		std::cout << "-------------------\n";
+		ClapTrap to_copy(clap);
+		std::cout << "-------------------\n";
 	}
 	return (0);
 }

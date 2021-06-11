@@ -1,16 +1,8 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap(100, 100, 50, 50, 1, 20, 15, 3, "Jack", SCAV)
-{
-	std::cout << bold_green << "No input data..." << cancel << std::endl;
-	this->set_up();
-}
+ScavTrap::ScavTrap() : ClapTrap(100, 100, 50, 50, 1, 20, 15, 3, "Jack", "SCAV") {};
 
-ScavTrap::ScavTrap(const std::string &name) : ClapTrap(100, 100, 50, 50, 1, 20, 15, 3, name, SCAV)
-{
-	std::cout << bold_green << "Input data processing..." << cancel << std::endl;
-	this->set_up();
-};
+ScavTrap::ScavTrap(const std::string &name) : ClapTrap(100, 100, 50, 50, 1, 20, 15, 3, name, "SCAV") {};
 
 ScavTrap::ScavTrap(const ScavTrap &robot)
 {
@@ -35,6 +27,7 @@ ScavTrap &ScavTrap::operator = (const ScavTrap &robot)
 	this->_ranged_attack = robot._ranged_attack;
 	this->_armor_damage = robot._armor_damage;
 	this->_name = robot._name + "_copy";
+	this->_type = robot._type;
 	return (*this);
 }
 

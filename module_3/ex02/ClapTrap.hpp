@@ -4,9 +4,6 @@
 #include <string>
 #include <iostream>
 
-#define CLAP "CLAP"
-#define SCAV "SCAV"
-#define FRAG "FRAG"
 #define cancel "\033[0m"
 #define yellow "\033[0;33m"
 #define red "\033[0;31m"

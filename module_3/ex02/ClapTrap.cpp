@@ -1,8 +1,8 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _name("Tom"), _type(CLAP)
+ClapTrap::ClapTrap() : _name("Tom"), _type("CLAP")
 {
-	std::cout << bold_green << "No input data..." << cancel << std::endl;
+	std::cout << bold_green << "Default ClapTrap loading..." << cancel << std::endl;
 	this->set_up();
 }
 
@@ -14,7 +14,8 @@ ClapTrap::ClapTrap(const unsigned int &hit_points, const unsigned int &max_hit_p
 _energy_points(energy_points), _max_energy_points(max_energy_points), _level(level), _melee_attack(melee_attack), \
 _ranged_attack(ranged_attack), _armor_damage(armor_damage), _name(name), _type(type)
 {
-	std::cout << bold_green << "Input data processing..." << cancel << std::endl;
+	std::cout << bold_green << "Input data processing...\n" << cancel << \
+	green << "ClapTrap adjusting settings depending on chosen type...wait..." << std::endl;
 	this->set_up();
 };
 
@@ -27,7 +28,7 @@ ClapTrap::ClapTrap(const ClapTrap &robot)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << yellow <<  _name << " : I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << cancel << std::endl;
+	std::cout << yellow << "ClapTrap that maintains " << _name << " was deleted." << cancel << std::endl;
 }
 
 void ClapTrap::set_up(void) const
@@ -38,12 +39,12 @@ void ClapTrap::set_up(void) const
 
 void ClapTrap::intro(void) const
 {
-	if (!_type.compare(SCAV))
+	if (!_type.compare("SCAV"))
 	{
 		std::cout << green << "Recompiling my combat code... My name is " << bold_green + _name + cancel + "." << std::endl << \
 		green << "Look out everybody! Things are about to get awesome! Wheeeee!";
 	}
-	else if (!_type.compare(FRAG))
+	else if (!_type.compare("FRAG"))
 	{
 		std::cout << green << "Booting sequence complete. Beep-Beep! I'm " << bold_green + _name + cancel + "." << std::endl << \
 		green << "Directive one: Protect humanity! Directive two: Obey Jack at all costs. Directive three: Dance!";
@@ -51,7 +52,7 @@ void ClapTrap::intro(void) const
 	else
 	{
 		std::cout << green << "Hi there! I'm " << bold_green + _name + cancel + "." << std::endl << \
-		green << "Adjusting settings depending on chosen type...";
+		green << "I can only launch other robots.";
 	}
 	std::cout << cancel << std::endl;
 }
@@ -67,12 +68,13 @@ ClapTrap &ClapTrap::operator = (const ClapTrap &robot)
 	this->_ranged_attack = robot._ranged_attack;
 	this->_armor_damage = robot._armor_damage;
 	this->_name = robot._name + "_copy";
+	this->_type = robot._type;
 	return (*this);
 }
 
 void ClapTrap::attack(std::string &type, const std::string &target) const
 {
-	if (!_type.compare(FRAG))
+	if (!_type.compare("FRAG"))
 	{
 		if (_hit_points)
 		{
@@ -82,7 +84,7 @@ void ClapTrap::attack(std::string &type, const std::string &target) const
 		else
 			std::cout << red << "FR4G-TP " << _name << " is powerless because it's damaged, needs repair... *broken beep*";
 	}
-	else if (!_type.compare(SCAV))
+	else if (!_type.compare("SCAV"))
 	{
 		if (_hit_points)
 		{
@@ -94,7 +96,7 @@ void ClapTrap::attack(std::string &type, const std::string &target) const
 			std::cout << red << _name << ": Where'd all my bullets go? Hnngh! Empty!";
 	}
 	else
-		std::cout << yellow << "ClapTraps can't attack :(";
+		std::cout << yellow << "ClapTraps can't attack!";
 	std::cout << cancel << std::endl;
 }
 
@@ -114,7 +116,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	int tmp;
 
-	if (!_type.compare(SCAV))
+	if (!_type.compare("SCAV"))
 	{
 		if (!_hit_points)
 			std::cout << red << _name << " : you know, I'm already kind of dead inside...";
@@ -135,7 +137,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 			}
 		}
 	}
-	else if (!_type.compare(FRAG))
+	else if (!_type.compare("FRAG"))
 	{
 		if (!_hit_points)
 			std::cout << red << "FR4G-TP " << _name << " is already mortally damaged, needs repair... *broken beep*";
@@ -163,7 +165,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (!_type.compare(FRAG))
+	if (!_type.compare("FRAG"))
 	{
 		if (_hit_points == _max_hit_points)
 			std::cout << yellow << "FR4G-TP " << _name << " is already fully functional *cheery beep*";
@@ -173,7 +175,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 			std::cout << yellow << "FR4G-TP " << _name << " was repaired and now has " << _hit_points << "XP *thankful beep*";
 		}
 	}
-	else if (!_type.compare(SCAV))
+	else if (!_type.compare("SCAV"))
 	{
 		if (_hit_points == _max_hit_points)
 			std::cout << yellow << _name << " : Better lucky than good! *XP already full*";

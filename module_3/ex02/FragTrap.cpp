@@ -1,16 +1,8 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap(100, 100, 100, 100, 1, 30, 20, 5, "Wall-E", FRAG)
-{
-	std::cout << bold_green << "No input data..." << cancel << std::endl;
-	this->set_up();
-}
+FragTrap::FragTrap() : ClapTrap(100, 100, 100, 100, 1, 30, 20, 5, "Wall-E", "FRAG") {};
 
-FragTrap::FragTrap(const std::string &name) : ClapTrap(100, 100, 100, 100, 1, 30, 20, 5, name, FRAG)
-{
-	std::cout << bold_green << "Input data processing..." << cancel << std::endl;
-	this->set_up();
-}
+FragTrap::FragTrap(const std::string &name) : ClapTrap(100, 100, 100, 100, 1, 30, 20, 5, name, "FRAG") {};
 
 FragTrap::FragTrap(const FragTrap &robot)
 {
@@ -35,6 +27,7 @@ FragTrap &FragTrap::operator = (const FragTrap &robot)
 	this->_ranged_attack = robot._ranged_attack;
 	this->_armor_damage = robot._armor_damage;
 	this->_name = robot._name + "_copy";
+	this->_type = robot._type;
 	return (*this);
 }
 
