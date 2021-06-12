@@ -33,27 +33,50 @@ NinjaTrap &NinjaTrap::operator = (const NinjaTrap &robot)
 
 void NinjaTrap::no_power(void) const
 {
-	std::cout << red << "Oh, ninja " << _name << " has lost his power, but it's temporary...";
+	std::cout << red << "Oh, ninja " << _name << " has lost his power, but it's temporary..." << cancel << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(ClapTrap &target)
 {
-	if (!_hit_points)
-		std::cout << red << _name << " : you know, I'm already kind of dead inside...";
+	if (_hit_points)
+	{
+		std::cout << yellow << _name << " : the first priority to the ninja is to win without fighting! Attack ClapTrap!\n";
+		target.takeDamage(5);
+	}
 	else
 		no_power();
 }
 
 void NinjaTrap::ninjaShoebox(FragTrap &target)
 {
-
+	if (_hit_points)
+	{
+		std::cout << yellow << _name << " : stealth attack on FragTrap!\n";
+		target.takeDamage(42);
+	}
+	else
+		no_power();
 }
 
 void NinjaTrap::ninjaShoebox(ScavTrap &target)
 {
-
+	if (_hit_points)
+	{
+		target.challengeNewcomer();
+		std::cout << yellow << _name << " : leave your riddles to others! *katana whistling over ScavTrap's head*\n";
+		target.takeDamage(60);
+	}
+	else
+		no_power();
 }
+
 void NinjaTrap::ninjaShoebox(NinjaTrap &target)
 {
-	
+	if (_hit_points)
+	{
+		std::cout << yellow << _name << " : only a ninja can stop ninja! Finally, a worthy opponent...\n";
+		target.takeDamage(30);
+	}
+	else
+		no_power();
 }

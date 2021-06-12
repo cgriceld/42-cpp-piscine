@@ -113,6 +113,12 @@ int main(void)
 	}
 	std::cout << "\n\033[1;36m PART 4 \033[0m\n\n";
 	{
+		ClapTrap clap;
+		std::cout << "-------------------\n";
+		FragTrap frag("Bonnie");
+		std::cout << "-------------------\n";
+		ScavTrap scav("Sam");
+		std::cout << "-------------------\n";
 		NinjaTrap nin;
 		std::cout << "-------------------\n";
 		nin.meleeAttack("Boo");
@@ -121,11 +127,23 @@ int main(void)
 		std::cout << "-------------------\n";
 		nin.takeDamage(200);
 		std::cout << "-------------------\n";
+		nin.beRepaired(100);
+		std::cout << "-------------------\n";
 		nin.rangedAttack("Boo");
 		std::cout << "-------------------\n";
-		nin.beRepaired(70);
-		std::cout << "-------------------\n";
 		NinjaTrap name("Momochi");
+		std::cout << "-------------------\n";
+		nin.ninjaShoebox(scav);
+		std::cout << "-------------------\n";
+		nin.ninjaShoebox(clap);
+		std::cout << "-------------------\n";
+		nin.ninjaShoebox(frag);
+		std::cout << "-------------------\n";
+		nin.ninjaShoebox(name);
+		std::cout << "-------------------\n";
+		nin.takeDamage(200);
+		std::cout << "-------------------\n";
+		nin.ninjaShoebox(name);
 		std::cout << "-------------------\n";
 	}
 	return (0);

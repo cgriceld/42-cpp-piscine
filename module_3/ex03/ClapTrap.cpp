@@ -103,7 +103,7 @@ void ClapTrap::attack(std::string &type, const std::string &target) const
 	{
 		if (_hit_points)
 		{
-			std::cout << yellow << "Ninja" << _name << " attacks " << target << " at " << type << " with " << \
+			std::cout << yellow << "Ninja " << _name << " attacks " << target << " at " << type << " with " << \
 			(!target.compare("range") ? _ranged_attack : _melee_attack) << " damage! Or not? It's so dark in here, I didn't quite notice!";
 		}
 		else
@@ -178,10 +178,10 @@ void ClapTrap::takeDamage(unsigned int amount)
 			std::cout << red << "Ninja " << _name << " is already mortally wounded";
 		else
 		{
-			if (_hit_points - amount)
+			if (_hit_points > amount)
 			{
 				_hit_points -= amount;
-				std::cout << yellow << "Ninja " << _name << " was wounded and now has " << _hit_points;
+				std::cout << yellow << "Ninja " << _name << " was wounded and now has " << _hit_points << "XP";
 			}
 			else
 			{
@@ -201,7 +201,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 			std::cout << yellow << "FR4G-TP " << _name << " is already fully functional *cheery beep*";
 		else
 		{
-			_hit_points = amount >= _max_hit_points ? _max_hit_points : _hit_points + amount;
+			_hit_points = (_hit_points + amount) >= _max_hit_points ? _max_hit_points : _hit_points + amount;
 			std::cout << yellow << "FR4G-TP " << _name << " was repaired and now has " << _hit_points << "XP *thankful beep*";
 		}
 	}
@@ -211,7 +211,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 			std::cout << yellow << _name << " : Better lucky than good! *XP already full*";
 		else
 		{
-			_hit_points = amount >= _max_hit_points ? _max_hit_points : _hit_points + amount;
+			_hit_points = (_hit_points + amount) >= _max_hit_points ? _max_hit_points : _hit_points + amount;
 			std::cout << yellow <<  _name << " : Health over here! *current XP: " << _hit_points << "*";
 		}
 	}
@@ -223,7 +223,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 			std::cout << yellow << _name << " : my XP is already full";
 		else
 		{
-			_hit_points = amount >= _max_hit_points ? _max_hit_points : _hit_points + amount;
+			_hit_points = (_hit_points + amount) >= _max_hit_points ? _max_hit_points : _hit_points + amount;
 			std::cout << yellow <<  _name << " : health restored, current XP: " << _hit_points;
 		}
 	}
