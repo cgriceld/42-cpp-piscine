@@ -49,10 +49,12 @@ void ClapTrap::intro(void) const
 		std::cout << green << "Booting sequence complete. Beep-Beep! I'm " << bold_green + _name + cancel + "." << std::endl << \
 		green << "Directive one: Protect humanity! Directive two: Obey Jack at all costs. Directive three: Dance!";
 	}
+	else if (!_type.compare("NINJA"))
+		std::cout << green << "Konnichiwa! I'm " << bold_green + _name + cancel + ".";
 	else
 	{
 		std::cout << green << "Hi there! I'm " << bold_green + _name + cancel + "." << std::endl << \
-		green << "I can only launch other robots.";
+		green << "I can only launch others.";
 	}
 	std::cout << cancel << std::endl;
 }
@@ -95,8 +97,18 @@ void ClapTrap::attack(std::string &type, const std::string &target) const
 		else
 			std::cout << red << _name << ": Where'd all my bullets go? Hnngh! Empty!";
 	}
-	else
+	else if (!_type.compare("CLAP"))
 		std::cout << yellow << "ClapTraps can't attack!";
+	else
+	{
+		if (_hit_points)
+		{
+			std::cout << yellow << "Ninja" << _name << " attacks " << target << " at " << type << " with " << \
+			(!target.compare("range") ? _ranged_attack : _melee_attack) << " damage! Or not? It's so dark in here, I didn't quite notice!";
+		}
+		else
+			std::cout << red << "Oh, ninja " << _name << " has lost his power, but it's temporary...";
+	}
 	std::cout << cancel << std::endl;
 }
 
@@ -158,8 +170,26 @@ void ClapTrap::takeDamage(unsigned int amount)
 			}
 		}
 	}
-	else
+	else if (!_type.compare("CLAP"))
 		std::cout << yellow << "ClapTraps can't take damage!";
+	else
+	{
+		if (!_hit_points)
+			std::cout << red << "Ninja " << _name << " is already mortally wounded";
+		else
+		{
+			if (_hit_points - amount)
+			{
+				_hit_points -= amount;
+				std::cout << yellow << "Ninja " << _name << " was wounded and now has " << _hit_points;
+			}
+			else
+			{
+				_hit_points = 0;
+				std::cout << red << "Ninja " << _name << " is mortally wounded";
+			}
+		}
+	}
 	std::cout << cancel << std::endl;
 }
 
@@ -171,7 +201,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 			std::cout << yellow << "FR4G-TP " << _name << " is already fully functional *cheery beep*";
 		else
 		{
-			_hit_points = (_hit_points + amount) >= _max_hit_points ? _max_hit_points : _hit_points + amount;
+			_hit_points = amount >= _max_hit_points ? _max_hit_points : _hit_points + amount;
 			std::cout << yellow << "FR4G-TP " << _name << " was repaired and now has " << _hit_points << "XP *thankful beep*";
 		}
 	}
@@ -181,11 +211,21 @@ void ClapTrap::beRepaired(unsigned int amount)
 			std::cout << yellow << _name << " : Better lucky than good! *XP already full*";
 		else
 		{
-			_hit_points = (_hit_points + amount) >= _max_hit_points ? _max_hit_points : _hit_points + amount;
+			_hit_points = amount >= _max_hit_points ? _max_hit_points : _hit_points + amount;
 			std::cout << yellow <<  _name << " : Health over here! *current XP: " << _hit_points << "*";
 		}
 	}
-	else
+	else if (!_type.compare("CLAP"))
 		std::cout << yellow << "ClapTraps can't be repaired!";
+	else
+	{
+		if (_hit_points == _max_hit_points)
+			std::cout << yellow << _name << " : my XP is already full";
+		else
+		{
+			_hit_points = amount >= _max_hit_points ? _max_hit_points : _hit_points + amount;
+			std::cout << yellow <<  _name << " : health restored, current XP: " << _hit_points;
+		}
+	}
 	std::cout << cancel << std::endl;
 }

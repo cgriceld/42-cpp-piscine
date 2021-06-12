@@ -111,7 +111,7 @@ void ScavTrap::beRepaired(unsigned int amount)
 		std::cout << yellow << _name << " : Better lucky than good! *XP already full*";
 	else
 	{
-		_hit_points = amount >= _max_hit_points ? _max_hit_points : _hit_points + amount;
+		_hit_points = (_hit_points + amount) >= _max_hit_points ? _max_hit_points : _hit_points + amount;
 		std::cout << yellow <<  _name << " : Health over here! *current XP: " << _hit_points << "*";
 	}
 	std::cout << cancel << std::endl;

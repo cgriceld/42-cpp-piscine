@@ -110,7 +110,7 @@ void FragTrap::beRepaired(unsigned int amount)
 		std::cout << yellow << "FR4G-TP " << _name << " is already fully functional *cheery beep*";
 	else
 	{
-		_hit_points = amount >= _max_hit_points ? _max_hit_points : _hit_points + amount;
+		_hit_points = (_hit_points + amount) >= _max_hit_points ? _max_hit_points : _hit_points + amount;
 		std::cout << yellow << "FR4G-TP " << _name << " was repaired and now has " << _hit_points << "XP *thankful beep*";
 	}
 	std::cout << cancel << std::endl;
