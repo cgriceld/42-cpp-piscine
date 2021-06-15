@@ -11,8 +11,6 @@ int main(void)
 
 	c = b;
 	std::cout << "-------------\n";
-	a = b = c;
-	std::cout << "-------------\n";
 
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << "-------------\n";

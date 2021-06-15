@@ -1,6 +1,9 @@
 #include "ZombieEvent.hpp"
 
-ZombieEvent::ZombieEvent() : _type("sleepy") {};
+ZombieEvent::ZombieEvent() : _type("sleepy")
+{
+	srand(time(0));
+};
 
 ZombieEvent::~ZombieEvent() {};
 

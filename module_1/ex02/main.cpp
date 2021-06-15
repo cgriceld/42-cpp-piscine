@@ -25,8 +25,8 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	srand(time(0));
-
+	Frank.randomChump();
+	std::cout << std::endl;
 	Frank.randomChump();
 	std::cout << std::endl;
 	Frank.randomChump();

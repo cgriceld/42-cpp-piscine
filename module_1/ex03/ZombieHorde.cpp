@@ -2,6 +2,7 @@
 
 ZombieHorde::ZombieHorde(int N) : _n(N)
 {
+	srand(time(0));
 	std::string names[6] = {"runner", "stalker", "clicker", "bloater", "shambler", "rat king"};
 	try
 	{

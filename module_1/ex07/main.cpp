@@ -37,12 +37,17 @@ int main(int argc, char **argv)
 	std::string new_file(argv[1]);
 
 	file.open(argv[1], std::ifstream::in);
+	if (file.fail() || !to_find.length() || !to_replace.length())
+	{
+		std::cerr << "Error with arguments (no such file, error while opening, empty arguments)" << std::endl;
+		return (1);
+	}
 	for (size_t i = 0; i < new_file.length(); i++)
 		new_file[i] = std::toupper(new_file[i]);
 	replace.open(new_file + ".replace", std::ofstream::trunc);
-	if (file.fail() || replace.fail() || !to_find.length() || !to_replace.length())
+	if (replace.fail())
 	{
-		std::cerr << "Error with arguments (no such file, error while opening, empty arguments)" << std::endl;
+		std::cerr << "Error when creating new file" << std::endl;
 		return (1);
 	}
 	sed(file, replace, to_find, to_replace);

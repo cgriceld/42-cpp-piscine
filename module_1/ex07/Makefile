@@ -1,7 +1,7 @@
 NAME = replace
 
 CC = clang++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)

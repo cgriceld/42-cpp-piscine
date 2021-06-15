@@ -3,10 +3,12 @@
 
 int main(void)
 {
-	srand(time(0));
-
 	ZombieHorde wave(10);
 	wave.announce();
+	std::cout << std::endl;
+
+	ZombieHorde wave2(5);
+	wave2.announce();
 	std::cout << std::endl;
 
 	return (0);
