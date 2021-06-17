@@ -16,6 +16,8 @@ int main(void)
 	std::cout << "-------------------\n";
 	dflt.takeDamage(200);
 	std::cout << "-------------------\n";
+	dflt.takeDamage(200);
+	std::cout << "-------------------\n";
 	dflt.beRepaired(21);
 	std::cout << "-------------------\n";
 	dflt.takeDamage(50);

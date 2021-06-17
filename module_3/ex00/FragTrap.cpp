@@ -30,12 +30,7 @@ FragTrap::~FragTrap()
 
 void FragTrap::set_up(void) const
 {
-	this->intro();
 	std::srand(time(0));
-}
-
-void FragTrap::intro(void) const
-{
 	std::cout << green << "Booting sequence complete. Beep-Beep! I'm " << bold_green + _name + cancel + "." << std::endl << \
 	green << "Directive one: Protect humanity! Directive two: Obey Jack at all costs. Directive three: Dance!" \
 	<< cancel << std::endl;
@@ -82,7 +77,7 @@ void FragTrap::meleeAttack(std::string const &target) const
 void FragTrap::takeDamage(unsigned int amount)
 {
 	if (!_hit_points)
-		std::cout << red << _name << " is already mortally damaged, needs repair...";
+		std::cout << red << _name << " is already kind of dead inside...";
 	else if (static_cast<int>(amount) <= _armor_damage)
 		std::cout << yellow << _name << " didn't even flinch...";
 	else

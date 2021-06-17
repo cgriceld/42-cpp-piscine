@@ -12,7 +12,14 @@ public:
 	~FragTrap();
 
 	FragTrap &operator = (const FragTrap &robot);
+
+	void rangedAttack(std::string const &target) const;
+	void meleeAttack(std::string const &target) const;
 	void vaulthunter_dot_exe(std::string const &target);
+
+private:
+	void set_up(void) const;
+	void attack(std::string &type, const std::string &target) const;
 };
 
 #endif

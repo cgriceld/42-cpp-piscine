@@ -12,7 +12,14 @@ public:
 	~ScavTrap();
 
 	ScavTrap &operator = (const ScavTrap &robot);
-	void challengeNewcomer();
+
+	void rangedAttack(std::string const &target) const;
+	void meleeAttack(std::string const &target) const;
+	void challengeNewcomer(void);
+
+private:
+	void set_up(void) const;
+	void attack(std::string &type, const std::string &target) const;
 };
 
 #endif

@@ -14,11 +14,15 @@ public:
 	~NinjaTrap();
 
 	NinjaTrap &operator = (const NinjaTrap &robot);
+
+	void ninjaShoebox(ClapTrap &target) const;
+	void ninjaShoebox(FragTrap &target) const;
+	void ninjaShoebox(ScavTrap &target) const;
+	void ninjaShoebox(NinjaTrap &target) const;
+
+private:
+	void set_up(void) const;
 	void no_power(void) const;
-	void ninjaShoebox(ClapTrap &target);
-	void ninjaShoebox(FragTrap &target);
-	void ninjaShoebox(ScavTrap &target);
-	void ninjaShoebox(NinjaTrap &target);
 };
 
 #endif

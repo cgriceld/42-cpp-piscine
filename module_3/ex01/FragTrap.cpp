@@ -30,12 +30,7 @@ FragTrap::~FragTrap()
 
 void FragTrap::set_up(void) const
 {
-	this->intro();
 	std::srand(time(0));
-}
-
-void FragTrap::intro(void) const
-{
 	std::cout << green << "Booting sequence complete. Beep-Beep! I'm " << bold_green + _name + cancel + "." << std::endl << \
 	green << "Directive one: Protect humanity! Directive two: Obey Jack at all costs. Directive three: Dance!" \
 	<< cancel << std::endl;
@@ -81,24 +76,19 @@ void FragTrap::meleeAttack(std::string const &target) const
 
 void FragTrap::takeDamage(unsigned int amount)
 {
-	int tmp;
-
 	if (!_hit_points)
-		std::cout << red << "FR4G-TP " << _name << " is already mortally damaged, needs repair... *broken beep*";
-	else if (amount <= _armor_damage)
-		std::cout << yellow << "FR4G-TP " << _name << " didn't even flinch... *brave beep*";
+		std::cout << red << _name << " is already kind of dead inside...";
+	else if (static_cast<int>(amount) <= _armor_damage)
+		std::cout << yellow << _name << " didn't even flinch...";
 	else
 	{
-		tmp = amount - _armor_damage;
-		if (_hit_points > tmp)
-		{
-			_hit_points -= tmp;
-			std::cout << yellow << "FR4G-TP " << _name << " was damaged and now has " << _hit_points << "XP *looser beep*";
-		}
+		_hit_points -= (amount - _armor_damage);
+		if (_hit_points > 0)
+			std::cout << yellow <<  _name << " was damaged and now has " << _hit_points << "XP *looser beep*";
 		else
 		{
 			_hit_points = 0;
-			std::cout << red << "FR4G-TP " << _name << " is mortally damaged, needs repair... *broken beep*";
+			std::cout << red << _name << " is mortally damaged, needs repair...";
 		}
 	}
 	std::cout << cancel << std::endl;
@@ -107,11 +97,11 @@ void FragTrap::takeDamage(unsigned int amount)
 void FragTrap::beRepaired(unsigned int amount)
 {
 	if (_hit_points == _max_hit_points)
-		std::cout << yellow << "FR4G-TP " << _name << " is already fully functional *cheery beep*";
+		std::cout << yellow << _name << " is already fully functional";
 	else
 	{
-		_hit_points = (_hit_points + amount) >= _max_hit_points ? _max_hit_points : _hit_points + amount;
-		std::cout << yellow << "FR4G-TP " << _name << " was repaired and now has " << _hit_points << "XP *thankful beep*";
+		_hit_points = (_hit_points + static_cast<int>(amount)) >= _max_hit_points ? _max_hit_points : _hit_points + amount;
+		std::cout << yellow << _name << " was repaired and now has " << _hit_points << "XP";
 	}
 	std::cout << cancel << std::endl;
 }

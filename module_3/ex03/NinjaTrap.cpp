@@ -1,14 +1,27 @@
 #include "NinjaTrap.hpp"
 
-NinjaTrap::NinjaTrap() : ClapTrap(60, 60, 120, 120, 1, 60, 5, 0, "Ishikawa", "NINJA") {};
+NinjaTrap::NinjaTrap() : ClapTrap(60, 60, 120, 120, 1, 60, 5, 0, "Ishikawa")
+{
+	std::cout << green << "ClapTrap adjusting settings depending on chosen type...wait..." << std::endl;
+	this->set_up();
+};
 
-NinjaTrap::NinjaTrap(const std::string &name) : ClapTrap(60, 60, 120, 120, 1, 60, 5, 0, name, "NINJA") {};
+NinjaTrap::NinjaTrap(const std::string &name) : ClapTrap(60, 60, 120, 120, 1, 60, 5, 0, name)
+{
+	std::cout << green << "ClapTrap adjusting settings depending on chosen type...wait..." << std::endl;
+	this->set_up();
+};
 
 NinjaTrap::NinjaTrap(const NinjaTrap &robot)
 {
 	std::cout << bold_green << "Copying input data..." << cancel << std::endl;
 	*this = robot;
 	this->set_up();
+}
+
+void NinjaTrap::set_up(void) const
+{
+	std::cout << green << "Konnichiwa! I'm " << bold_green + _name + cancel + ".\n";
 }
 
 NinjaTrap::~NinjaTrap()
@@ -27,7 +40,6 @@ NinjaTrap &NinjaTrap::operator = (const NinjaTrap &robot)
 	this->_ranged_attack = robot._ranged_attack;
 	this->_armor_damage = robot._armor_damage;
 	this->_name = robot._name + "_copy";
-	this->_type = robot._type;
 	return (*this);
 }
 
@@ -36,7 +48,7 @@ void NinjaTrap::no_power(void) const
 	std::cout << red << "Oh, ninja " << _name << " has lost his power, but it's temporary..." << cancel << std::endl;
 }
 
-void NinjaTrap::ninjaShoebox(ClapTrap &target)
+void NinjaTrap::ninjaShoebox(ClapTrap &target) const
 {
 	if (_hit_points)
 	{
@@ -47,7 +59,7 @@ void NinjaTrap::ninjaShoebox(ClapTrap &target)
 		no_power();
 }
 
-void NinjaTrap::ninjaShoebox(FragTrap &target)
+void NinjaTrap::ninjaShoebox(FragTrap &target) const
 {
 	if (_hit_points)
 	{
@@ -58,7 +70,7 @@ void NinjaTrap::ninjaShoebox(FragTrap &target)
 		no_power();
 }
 
-void NinjaTrap::ninjaShoebox(ScavTrap &target)
+void NinjaTrap::ninjaShoebox(ScavTrap &target) const
 {
 	if (_hit_points)
 	{
@@ -70,7 +82,7 @@ void NinjaTrap::ninjaShoebox(ScavTrap &target)
 		no_power();
 }
 
-void NinjaTrap::ninjaShoebox(NinjaTrap &target)
+void NinjaTrap::ninjaShoebox(NinjaTrap &target) const
 {
 	if (_hit_points)
 	{

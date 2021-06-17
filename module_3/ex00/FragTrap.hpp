@@ -27,7 +27,6 @@ public:
 	void vaulthunter_dot_exe(std::string const &target);
 
 private:
-	void intro(void) const;
 	void set_up(void) const;
 	void attack(std::string &type, const std::string &target) const;
 
