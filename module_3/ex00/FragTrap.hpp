@@ -19,9 +19,7 @@ public:
 	~FragTrap();
 
 	FragTrap &operator = (const FragTrap &robot);
-	void intro(void) const;
-	void set_up(void) const;
-	void attack(std::string &type, const std::string &target) const;
+
 	void rangedAttack(std::string const &target) const;
 	void meleeAttack(std::string const &target) const;
 	void takeDamage(unsigned int amount);
@@ -29,14 +27,18 @@ public:
 	void vaulthunter_dot_exe(std::string const &target);
 
 private:
-	unsigned int _hit_points;
-	unsigned int _max_hit_points;
-	unsigned int _energy_points;
-	unsigned int _max_energy_points;
-	unsigned int _level;
-	unsigned int _melee_attack;
-	unsigned int _ranged_attack;
-	unsigned int _armor_damage;
+	void intro(void) const;
+	void set_up(void) const;
+	void attack(std::string &type, const std::string &target) const;
+
+	int _hit_points;
+	int _max_hit_points;
+	int _energy_points;
+	int _max_energy_points;
+	int _level;
+	int _melee_attack;
+	int _ranged_attack;
+	int _armor_damage;
 	std::string _name;
 };
 

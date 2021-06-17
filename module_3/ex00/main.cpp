@@ -8,7 +8,6 @@ int main(void)
 	std::cout << "-------------------\n";
 	FragTrap tallneck(dflt);
 	std::cout << "-------------------\n";
-
 	dflt.beRepaired(42);
 	std::cout << "-------------------\n";
 	dflt.meleeAttack("Zombie");
@@ -23,15 +22,8 @@ int main(void)
 	std::cout << "-------------------\n";
 	dflt.beRepaired(300);
 	std::cout << "-------------------\n";
-	dflt.vaulthunter_dot_exe("Ethan");
-	std::cout << "-------------------\n";
-	dflt.vaulthunter_dot_exe("Ethan");
-	std::cout << "-------------------\n";
-	dflt.vaulthunter_dot_exe("Ethan");
-	std::cout << "-------------------\n";
-	dflt.vaulthunter_dot_exe("Ethan");
-	std::cout << "-------------------\n";
-	dflt.vaulthunter_dot_exe("Ethan");
+	for (int i = 0; i < 5; i++)
+		dflt.vaulthunter_dot_exe("Ethan");
 	std::cout << "-------------------\n";
 	dflt.takeDamage(70);
 	std::cout << "-------------------\n";
