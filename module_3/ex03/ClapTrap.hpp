@@ -20,7 +20,7 @@ public:
 	const unsigned int &ranged_attack, const unsigned int &armor_damage, \
 	const std::string &name);
 	ClapTrap(const ClapTrap &robot);
-	~ClapTrap();
+	virtual ~ClapTrap();
 
 	ClapTrap &operator = (const ClapTrap &robot);
 
