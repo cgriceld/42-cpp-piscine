@@ -1,6 +1,6 @@
 #include "RadScorpion.hpp"
 
-RadScorpion::RadScorpion() : Enemy(80, "Super Mutant")
+RadScorpion::RadScorpion() : Enemy(80, "Rad Scorpion")
 {
 	hello();
 }

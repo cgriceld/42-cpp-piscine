@@ -53,7 +53,7 @@ void Character::attack(Enemy *en)
 	std::cout << _name << " attacks " << en->getType() << " with a " << _weapon->getName() << std::endl;
 	_weapon->attack();
 	_ap -= _weapon->getAPCost();
-	en->takeDamage(_weapon->getAPCost());
+	en->takeDamage(_weapon->getDamage());
 	if (!en->getHP())
 		delete en;
 }
