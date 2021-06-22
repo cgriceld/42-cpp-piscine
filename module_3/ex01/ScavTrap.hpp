@@ -28,7 +28,7 @@ public:
 
 private:
 	void set_up(void) const;
-	void attack(std::string &type, const std::string &target) const;
+	void attack(const std::string &type, const std::string &target) const;
 
 	int _hit_points;
 	int _max_hit_points;

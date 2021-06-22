@@ -50,7 +50,7 @@ FragTrap &FragTrap::operator = (const FragTrap &robot)
 	return (*this);
 }
 
-void FragTrap::attack(std::string &type, const std::string &target) const
+void FragTrap::attack(const std::string &type, const std::string &target) const
 {
 	if (_hit_points)
 	{
@@ -64,14 +64,12 @@ void FragTrap::attack(std::string &type, const std::string &target) const
 
 void FragTrap::rangedAttack(std::string const &target) const
 {
-	std::string type("range");
-	attack(type, target);
+	attack("range", target);
 }
 
 void FragTrap::meleeAttack(std::string const &target) const
 {
-	std::string type("melee");
-	attack(type, target);
+	attack("melee", target);
 }
 
 void FragTrap::takeDamage(unsigned int amount)

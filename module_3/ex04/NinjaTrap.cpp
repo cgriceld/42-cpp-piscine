@@ -93,7 +93,7 @@ void NinjaTrap::ninjaShoebox(NinjaTrap &target) const
 		no_power();
 }
 
-void NinjaTrap::attack(std::string &type, const std::string &target) const
+void NinjaTrap::attack(const std::string &type, const std::string &target) const
 {
 	if (_hit_points)
 	{
@@ -107,12 +107,10 @@ void NinjaTrap::attack(std::string &type, const std::string &target) const
 
 void NinjaTrap::rangedAttack(std::string const &target) const
 {
-	std::string type("range");
-	attack(type, target);
+	attack("range", target);
 }
 
 void NinjaTrap::meleeAttack(std::string const &target) const
 {
-	std::string type("melee");
-	attack(type, target);
+	attack("melee", target);
 }

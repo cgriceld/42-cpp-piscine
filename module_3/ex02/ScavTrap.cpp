@@ -47,7 +47,7 @@ ScavTrap &ScavTrap::operator = (const ScavTrap &robot)
 	return (*this);
 }
 
-void ScavTrap::attack(std::string &type, const std::string &target) const
+void ScavTrap::attack(const std::string &type, const std::string &target) const
 {
 	if (_hit_points)
 	{
@@ -62,14 +62,12 @@ void ScavTrap::attack(std::string &type, const std::string &target) const
 
 void ScavTrap::rangedAttack(std::string const &target) const
 {
-	std::string type("range");
-	attack(type, target);
+	attack("range", target);
 }
 
 void ScavTrap::meleeAttack(std::string const &target) const
 {
-	std::string type("melee");
-	attack(type, target);
+	attack("melee", target);
 }
 
 void ScavTrap::challengeNewcomer(void)

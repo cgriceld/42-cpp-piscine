@@ -24,7 +24,7 @@ public:
 
 private:
 	void set_up(void) const;
-	void attack(std::string &type, const std::string &target) const;
+	void attack(const std::string &type, const std::string &target) const;
 	void no_power(void) const;
 };
 
