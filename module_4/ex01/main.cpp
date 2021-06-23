@@ -6,6 +6,7 @@
 #include "RadScorpion.hpp"
 #include "SuperMutant.hpp"
 #include "Crossbow.hpp"
+#include "Clicker.hpp"
 
 int main(void)
 {
@@ -14,11 +15,15 @@ int main(void)
 
 	Enemy* scorp = new RadScorpion();
 	Enemy* mut = new SuperMutant();
+	Enemy* click = new Clicker();
 	AWeapon* pr = new PlasmaRifle();
 	AWeapon* pf = new PowerFist();
 	AWeapon* cb = new Crossbow();
 
+	std::cout << "----------------------\n";
+
 	me->equip(NULL);
+	me->attack(scorp);
 	me->equip(pr);
 	std::cout << *me;
 	me->equip(pf);
@@ -30,6 +35,9 @@ int main(void)
 	std::cout << *me;
 	me->attack(scorp);
 	std::cout << *me;
+	me->attack(NULL);
+
+	std::cout << "----------------------\n";
 
 	me->equip(cb);
 	std::cout << *me;
@@ -46,6 +54,22 @@ int main(void)
 	me->equip(pf);
 	std::cout << *me;
 	me->attack(mut);
+	std::cout << *me;
+	for (int i = 0; i < 2; i++)
+	{
+		me->recoverAP();
+		std::cout << *me;
+		me->attack(mut);
+		std::cout << *me;
+	}
+
+	std::cout << "----------------------\n";
+
+	me->recoverAP();
+	std::cout << *me;
+	me->attack(click);
+	std::cout << *me;
+	me->equip(NULL);
 	std::cout << *me;
 
 	delete me;
