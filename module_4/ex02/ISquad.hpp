@@ -7,7 +7,7 @@ class ISquad
 {
 public:
 	virtual ~ISquad() {};
-	virtual int getCount(void) const = 0;
+	virtual int getCount() const = 0;
 	virtual ISpaceMarine *getUnit(int) const = 0;
 	virtual int push(ISpaceMarine *) = 0;
 };

@@ -29,7 +29,16 @@ void AssaultTerminator::hello(void) const
 
 ISpaceMarine *AssaultTerminator::clone(void) const
 {
-	return (new AssaultTerminator(*this));
+	try
+	{
+		ISpaceMarine *tmp = new AssaultTerminator(*this);
+		return (tmp);
+	}
+	catch(const std::bad_alloc &e)
+	{
+		std::cerr << e.what() << ": can't create a copy of element\n";
+		return (NULL);
+	}
 }
 
 void AssaultTerminator::battleCry(void) const

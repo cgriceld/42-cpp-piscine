@@ -29,7 +29,16 @@ void TacticalMarine::hello(void) const
 
 ISpaceMarine *TacticalMarine::clone(void) const
 {
-	return (new TacticalMarine(*this));
+	try
+	{
+		ISpaceMarine *tmp = new TacticalMarine(*this);
+		return (tmp);
+	}
+	catch(const std::bad_alloc &e)
+	{
+		std::cerr << e.what() << ": can't create a copy of element\n";
+		return (NULL);
+	}
 }
 
 void TacticalMarine::battleCry(void) const

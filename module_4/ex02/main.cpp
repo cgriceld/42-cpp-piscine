@@ -1,5 +1,3 @@
-#include "ISpaceMarine.hpp"
-#include "ISquad.hpp"
 #include "TacticalMarine.hpp"
 #include "AssaultTerminator.hpp"
 #include "Squad.hpp"
@@ -33,6 +31,7 @@ int main(void)
 	}
 	std::cout << "-------------------\n";
 
+	std::cout << vlc->getUnit(21) << std::endl;
 	delete vlc;
 
 	return (0);
