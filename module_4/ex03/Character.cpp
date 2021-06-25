@@ -30,7 +30,10 @@ Character::~Character()
 void Character::free_mat(void)
 {
 	for (int i = 0; i < 4; ++i)
+	{
 		delete _materials[i];
+		_materials[i] = NULL;
+	}
 }
 
 void Character::copy_elems(const Character &copy)

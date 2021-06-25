@@ -28,7 +28,10 @@ MateriaSource &MateriaSource::operator = (const MateriaSource &copy)
 void MateriaSource::free_mat(void)
 {
 	for (int i = 0; i < 4; ++i)
+	{
 		delete _materials[i];
+		_materials[i] = NULL;
+	}
 }
 
 void MateriaSource::copy_elems(const MateriaSource &copy)

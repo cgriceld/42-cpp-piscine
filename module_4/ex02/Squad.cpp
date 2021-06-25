@@ -16,6 +16,7 @@ Squad::Squad() : _capacity(3), _count(0)
 
 Squad::Squad(const Squad &copy)
 {
+	_squad = NULL;
 	*this = copy;
 	std::cout << "/Squad copy constructor/\n";
 }
@@ -30,7 +31,8 @@ Squad &Squad::operator = (const Squad &copy)
 {
 	if (this == &copy)
 		return (*this);
-	free_squad();
+	if (_squad)
+		free_squad();
 	_capacity = copy._capacity;
 	_count = copy._count;
 	try
@@ -98,6 +100,9 @@ void Squad::free_squad(void)
 	for (int i = 0; i < _count; i++)
 		delete _squad[i];
 	delete[] _squad;
+	_squad = NULL;
+	_count = 0;
+	_capacity = 0;
 	std::cout << "/Free squad/\n";
 }
 
