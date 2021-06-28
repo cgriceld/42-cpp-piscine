@@ -32,6 +32,7 @@ public:
 
 	std::string const getName(void) const;
 	int getGrade(void) const;
+
 	void incr(void);
 	void decr(void);
 	void signForm(Form &form) const;

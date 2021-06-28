@@ -1,9 +1,12 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+#include "Form.hpp"
 #include <string>
 #include <exception>
 #include <iostream>
+
+class Form;
 
 class Bureaucrat
 {
@@ -32,6 +35,8 @@ public:
 
 	void incr(void);
 	void decr(void);
+	void signForm(Form &form) const;
+	void executeForm(Form const &form) const;
 
 private:
 	Bureaucrat();
