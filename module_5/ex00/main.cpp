@@ -42,6 +42,7 @@ int main(void)
 	Bureaucrat bur1("Jerry", 150);
 	std::cout << bur << bur1;
 	std::cout << "------------------\n";
+
 	try
 	{
 		bur.incr();
