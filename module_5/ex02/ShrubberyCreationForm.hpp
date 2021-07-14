@@ -16,10 +16,10 @@ public:
 
 	ShrubberyCreationForm &operator = (const ShrubberyCreationForm &copy);
 
-	void action(void) const;
-
 private:
 	ShrubberyCreationForm();
+
+	void action(void) const;
 };
 
 #endif

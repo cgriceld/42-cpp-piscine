@@ -87,6 +87,7 @@ void Form::execute(Bureaucrat const &executor) const
 std::ostream &operator << (std::ostream &stream, const Form &form)
 {
 	stream << "Form with name " << form.get_name() << ", sign status - " << form.get_state() << \
-	", grade to sign - " << form.get_grade_sign() << " and grade to execute - " << form.get_grade_exec() << std::endl;
+	", grade to sign - " << form.get_grade_sign() << ", grade to execute - " << form.get_grade_exec() << \
+	" and target - " << form.get_target() << std::endl;
 	return (stream);
 }

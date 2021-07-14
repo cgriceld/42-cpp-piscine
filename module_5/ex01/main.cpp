@@ -50,6 +50,7 @@ int main(void)
 		bur1.signForm(bill);
 		bur1.signForm(bill);
 		bur.signForm(invoice);
+		bur1.signForm(invoice);
 		std::cout << "------------------\n";
 		std::cout << bill << invoice;
 	}

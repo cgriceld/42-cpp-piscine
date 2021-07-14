@@ -60,7 +60,7 @@ void Bureaucrat::signForm(Form &form) const
 {
 	if (form.get_state())
 	{
-		std::cout << "Form " << form.get_name() << " already signed\n";
+		std::cout << "Form " << form.get_name() << " is already signed\n";
 		return;
 	}
 	try
