@@ -16,10 +16,10 @@ public:
 
 	RobotomyRequestForm &operator = (const RobotomyRequestForm &copy);
 
-	void action(void) const;
-
 private:
 	RobotomyRequestForm();
+
+	void action(void) const;
 };
 
 #endif

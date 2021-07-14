@@ -4,7 +4,7 @@ CC = clang++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp \
-RobotomyRequestForm.cpp
+RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp
