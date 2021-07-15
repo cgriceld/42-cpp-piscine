@@ -8,6 +8,14 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
+class Intern;
+
+typedef struct	s_type
+{
+	std::string name;
+	Form *(Intern::*create)(const std::string &target) const;
+}				t_type;
+
 class Intern
 {
 public:
@@ -22,22 +30,11 @@ public:
 
 private:
 
-	typedef struct	s_type
-	{
-		std::string name;
-		Form *(Intern::*create)(const std::string &target) const;
-	}				t_type;
-
 	Form *create_shrub(const std::string &target) const;
 	Form *create_rob(const std::string &target) const;
 	Form *create_pardon(const std::string &target) const;
 
-	const t_type types[3] = \
-	{
-		{"shrubbery creation", &create_shrub},
-		{"robotomy request", &create_rob},
-		{"presidential pardon", &create_pardon}
-	};
+	static const t_type types[3];
 };
 
 #endif
