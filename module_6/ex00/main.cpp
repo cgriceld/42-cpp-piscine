@@ -49,7 +49,10 @@ static void int_limits(T tmp)
 
 static void convert_double(const std::string val)
 {
-	double tmp = std::stod(val);
+	size_t idx;
+	double tmp = std::stod(val, &idx);
+	if (val.length() != idx)
+		throw std::invalid_argument("");
 	char_limits(tmp);
 	int_limits(tmp);
 	std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
@@ -59,7 +62,10 @@ static void convert_double(const std::string val)
 static void convert_float(std::string val)
 {
 	val.pop_back();
-	float tmp = std::stof(val);
+	size_t idx;
+	float tmp = std::stof(val, &idx);
+	if (val.length() != idx)
+		throw std::invalid_argument("");
 	char_limits(tmp);
 	int_limits(tmp);
 	std::cout << "float: " << tmp << "f" << std::endl;
@@ -68,7 +74,10 @@ static void convert_float(std::string val)
 
 static void convert_int(const std::string val)
 {
-	int tmp = std::stoi(val);
+	size_t idx;
+	int tmp = std::stoi(val, &idx);
+	if (val.length() != idx)
+		throw std::invalid_argument("");
 	char_limits(tmp);
 	std::cout << "int: " << tmp << std::endl;
 	std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
@@ -95,7 +104,7 @@ static void get_type(const std::string &val)
 				nanf(val);
 			else if (!val.compare("-inf") || !val.compare("+inf") || !val.compare("nan"))
 				nan(val);
-			else if (val.back() == 'f')
+			else if (val.back() == 'f' && val.find('.') != std::string::npos)
 				convert_float(val);
 			else if (val.find('.') != std::string::npos)
 				convert_double(val);
@@ -111,7 +120,7 @@ static void get_type(const std::string &val)
 		}
 		catch(const std::exception &e)
 		{
-			std::cerr << "conversion is impossible : unknown type\n";
+			std::cerr << "conversion is impossible\n";
 		}
 	}
 }
@@ -123,7 +132,6 @@ int main(int argc, char **argv)
 		std::cout << "Usage : ./convert [non-empty value], try again\n";
 		return (1);
 	}
-	//std::cout << std::stoi("-90++42") << std::endl;
 	std::cout << std::fixed << std::setprecision(1);
 	get_type(argv[1]);
 	return (0);
