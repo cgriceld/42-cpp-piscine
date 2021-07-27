@@ -54,13 +54,13 @@ Array<T>::Array(unsigned int n)
 }
 
 template <typename T>
-Array<T>::Array(const Array<T> &copy) : _arr(NULL)
+Array<T>::Array(const Array &copy) : _arr(NULL)
 {
 	*this = copy;
 }
 
 template <typename T>
-Array<T> &Array<T>::operator = (const Array<T> &copy)
+Array<T> &Array<T>::operator = (const Array &copy)
 {
 	if (this != &copy)
 	{
@@ -84,7 +84,7 @@ Array<T>::~Array()
 template <typename T>
 T &Array<T>::operator [] (const size_t i) const
 {
-	if (!_arr || i >= _len)
+	if (!_arr || i < 0 || i >= _len)
 		throw (std::out_of_range("array index out of range, try again"));
 	return (_arr[i]);
 }
