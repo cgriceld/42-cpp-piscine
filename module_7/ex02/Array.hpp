@@ -54,13 +54,13 @@ Array<T>::Array(unsigned int n)
 }
 
 template <typename T>
-Array<T>::Array(const Array &copy) : _arr(NULL)
+Array<T>::Array(const Array<T> &copy) : _arr(NULL)
 {
 	*this = copy;
 }
 
 template <typename T>
-Array<T> &Array<T>::operator = (const Array &copy)
+Array<T> &Array<T>::operator = (const Array<T> &copy)
 {
 	if (this != &copy)
 	{
