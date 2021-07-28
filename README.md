@@ -12,4 +12,4 @@ Topics:
 * Module 5 - *exceptions*
 * Module 6 - *type casting*
 * Module 7 - *templates*
-* Module 8 - *STL containers, algorithms>
+* Module 8 - *STL containers, algorithms*
