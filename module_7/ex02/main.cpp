@@ -27,6 +27,7 @@ int main(void)
 	a[2] = 4;
 	a[0] = 1;
 	std::cout << a;
+	std::cout << "try [] out of range : ";
 
 	try
 	{
