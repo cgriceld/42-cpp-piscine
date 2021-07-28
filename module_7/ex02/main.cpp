@@ -34,7 +34,7 @@ int main(void)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "array index out of range, try again\n";
 	}
 	std::cout << "------------\n";
 

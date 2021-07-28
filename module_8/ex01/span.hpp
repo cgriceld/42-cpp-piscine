@@ -3,13 +3,13 @@
 
 #include <vector>
 #include <algorithm>
-#include <cstdlib>
+#include <iterator>
 
 class Span
 {
 public:
 
-	class AlreadyFull : public std::exception
+	class AddError : public std::exception
 	{
 		public:
 			virtual const char *what() const throw();
@@ -29,7 +29,7 @@ public:
 
 	void addNumber(int n);
 	template <typename T>
-	void addNumber(T &begin, T&end);
+	void addNumber(T beg, T end);
 
 	unsigned int longestSpan(void) const;
 	unsigned int shortestSpan(void);
@@ -42,9 +42,12 @@ private:
 };
 
 template <typename T>
-void addNumber(T &beg, T&end)
+void Span::addNumber(T beg, T end)
 {
-	if (end < begin )
+	if (std::distance(beg, end) < 0 || (_n - _v.size() < std::distance(beg, end)))
+		throw AddError();
+	while (beg != end)
+		_v.push_back(*beg++);
 }
 
 #endif

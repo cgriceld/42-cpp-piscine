@@ -25,7 +25,7 @@ Span::~Span() {};
 void Span::addNumber(int n)
 {
 	if (_n == _v.size())
-		throw AlreadyFull();
+		throw AddError();
 	_v.push_back(n);
 	_sorted = false;
 }
@@ -42,17 +42,17 @@ unsigned int Span::shortestSpan(void)
 	if (_v.empty() || _v.size() == 1)
 		throw NoSpan();
 	if (!_sorted)
-		std::sort(_v.cbegin(), _v.cend());
+		std::sort(_v.begin(), _v.end());
 	_sorted = true;
-	unsigned int diff = 0;
-	while (++_v.begin() != _v.end())
-		diff = std::min(diff, static_cast<unsigned int>(*_v.begin() - *(_v.begin() - 1)));
+	unsigned int diff = _v.at(1) - _v.at(0);
+	for (int i = 2; i < _n; i++)
+		diff = std::min(diff, static_cast<unsigned int>(_v[i] - _v[i - 1]));
 	return (diff);
 }
 
-const char *Span::AlreadyFull::what() const throw()
+const char *Span::AddError::what() const throw()
 {
-	return ("array is already full, no space left\n");
+	return ("array is already full / not enough space / wrong iterator range\n");
 }
 
 const char *Span::NoSpan::what() const throw()

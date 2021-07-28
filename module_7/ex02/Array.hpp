@@ -85,7 +85,7 @@ template <typename T>
 T &Array<T>::operator [] (const size_t i) const
 {
 	if (!_arr || i < 0 || i >= _len)
-		throw (std::out_of_range("array index out of range, try again"));
+		throw (std::exception());
 	return (_arr[i]);
 }
 
