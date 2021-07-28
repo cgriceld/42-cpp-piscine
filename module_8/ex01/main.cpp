@@ -13,6 +13,7 @@ int main(void)
 		span.addNumber(23);
 		span.addNumber(0);
 		span.addNumber(9);
+		std::cout << "try to add one more in full array : ";
 
 		try
 		{
@@ -56,9 +57,9 @@ int main(void)
 		std::cout << "10000 TEST & ITERATOR INIT\n";
 		std::vector<int> test(10000);
 		for (int i = 0; i < 10000; i++)
-			test.push_back(rand());
+			test[i] = rand();
 		Span span(10000);
-		span.addNumber(test.cbegin(), test.cend());
+		span.addNumber(test.begin(), test.end());
 		std::cout << "longest : " << span.longestSpan() << ", shortest : " << span.shortestSpan() << std::endl;
 		std::cout << "--------------------\n";
 	}
@@ -66,9 +67,9 @@ int main(void)
 		std::cout << "WRONG ITERATOR INIT\n";
 		std::vector<int> test(4);
 		for (int i = 0; i < 4; i++)
-			test.push_back(rand());
+			test[i] = rand();
 		Span span(4);
-
+		std::cout << "first iterator is after last : ";
 		try
 		{
 			span.addNumber(test.cbegin() + 2, test.cbegin());
@@ -79,10 +80,11 @@ int main(void)
 		}
 
 		span.addNumber(1);
+		std::cout << "space left is smaller than range : ";
 
 		try
 		{
-			span.addNumber(test.cbegin(), test.cbegin());
+			span.addNumber(test.cbegin(), test.cend());
 		}
 		catch(const std::exception& e)
 		{
