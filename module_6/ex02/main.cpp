@@ -63,27 +63,27 @@ void identify(Base &p)
 		static_cast<void>(dynamic_cast<A &>(p));
 		std::cout << "A" << std::endl;
 	}
-	catch (const std::bad_cast &e) {}
+	catch(const std::bad_cast &e) {}
 
 	try
 	{
 		static_cast<void>(dynamic_cast<B &>(p));
 		std::cout << "B" << std::endl;
 	}
-	catch (const std::bad_cast &e) {}
+	catch(const std::bad_cast &e) {}
 
 	try
 	{
 		static_cast<void>(dynamic_cast<C &>(p));
 		std::cout << "C" << std::endl;
 	}
-	catch (const std::bad_cast &e) {}
+	catch(const std::bad_cast &e) {}
 }
 
 int main(void)
 {
 	srand(time(0));
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < 8; i++)
 	{
 		std::cout << "------------\n";
 		Base *ptr = generate();
