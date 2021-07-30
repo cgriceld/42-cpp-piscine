@@ -37,7 +37,7 @@ public:
 class C : public A, public B
 {
 public:
-	C() : Base(37, "W") {};
+	C() {};
 	C(std::string s);
 };
 
