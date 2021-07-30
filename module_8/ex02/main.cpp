@@ -1,5 +1,6 @@
 #include "mutantstack.hpp"
 #include <vector>
+#include <set>
 #include <iostream>
 
 template <typename I, class T, class Container>
@@ -17,9 +18,13 @@ int main(void)
 	v.push_back(42);
 	v.push_back(11);
 
+	char arr[] = {'c', 'a', 'b'};
+	std::set<char> s(arr, arr + 3);
+
 	MutantStack<int> a;
 	MutantStack< int, std::vector<int> > m;
 	MutantStack< int, std::vector<int> > c(v);
+	MutantStack< char, std::set<char> > test(s);
 
 	std::cout << "EMPTY MUTANTSATCK (DEQUE)\n";
 	print_stack(a.cbegin(), a.cend(), a);
@@ -29,7 +34,14 @@ int main(void)
 	print_stack(m.cbegin(), m.cend(), m);
 	std::cout << "--------------\n";
 
-	std::cout << "COPY MUTANTSATCK (VECTOR)\n";
+	std::cout << "MUTANTSATCK (SET)\n";
+	std::cout << "forward --->\n";
+	print_stack(test.cbegin(), test.cend(), test);
+	std::cout << "<--- reverse\n";
+	print_stack(test.crbegin(), test.crend(), test);
+	std::cout << "--------------\n";
+
+	std::cout << "MUTANTSATCK (VECTOR)\n";
 	std::cout << "forward --->\n";
 	print_stack(c.cbegin(), c.cend(), c);
 	std::cout << "<--- reverse\n";
@@ -45,6 +57,15 @@ int main(void)
 	std::cout << "= OPERATOR MUTANTSATCK\n";
 	m = copy;
 	print_stack(m.cbegin(), m.cend(), m);
+	std::cout << "--------------\n";
+
+	std::cout << "CHANGE VALUES VIA ITERATOR\n";
+	MutantStack< int, std::vector<int> >::iterator it = m.begin();
+	while (it != m.end())
+	{
+		(*it)++;
+		std::cout << *it++ << std::endl;
+	}
 	std::cout << "--------------\n";
 
 	return (0);
