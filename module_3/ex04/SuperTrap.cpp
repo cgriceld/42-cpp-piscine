@@ -1,29 +1,29 @@
 #include "SuperTrap.hpp"
 
-SuperTrap::SuperTrap()
+SuperTrap::SuperTrap() : ClapTrap(100, 100, 120, 120, 1, 60, 20, 5, "Lisa")
 {
-	set_hp(100);
-	set_maxhp(100);
-	set_energy(120);
-	set_maxenergy(120);
-	set_melee(60);
-	set_range(20);
-	set_armor(5);
-	set_name("Lisa");
+	// set_hp(100);
+	// set_maxhp(100);
+	// set_energy(120);
+	// set_maxenergy(120);
+	// set_melee(60);
+	// set_range(20);
+	// set_armor(5);
+	// set_name("Lisa");
 	std::cout << bold_green << "Default SuperTrap constructor called!\n" << cancel;
 	set_up();
 }
 
-SuperTrap::SuperTrap(const std::string &name)
+SuperTrap::SuperTrap(const std::string &name) : ClapTrap(100, 100, 120, 120, 1, 60, 20, 5, name)
 {
-	set_hp(100);
-	set_maxhp(100);
-	set_energy(120);
-	set_maxenergy(120);
-	set_melee(60);
-	set_range(20);
-	set_armor(5);
-	set_name(name);
+	// set_hp(100);
+	// set_maxhp(100);
+	// set_energy(120);
+	// set_maxenergy(120);
+	// set_melee(60);
+	// set_range(20);
+	// set_armor(5);
+	// set_name(name);
 	std::cout << bold_green << "SuperTrap constructor with name configuration -- done!\n" << cancel;
 	set_up();
 }

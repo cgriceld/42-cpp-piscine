@@ -83,42 +83,42 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << cancel << std::endl;
 }
 
-void ClapTrap::set_hp(const int i)
-{
-	_hit_points = i;
-}
+// void ClapTrap::set_hp(const int i)
+// {
+// 	_hit_points = i;
+// }
 
-void ClapTrap::set_maxhp(const int i)
-{
-	_max_hit_points = i;
-}
+// void ClapTrap::set_maxhp(const int i)
+// {
+// 	_max_hit_points = i;
+// }
 
-void ClapTrap::set_range(const int i)
-{
-	_ranged_attack = i;
-}
+// void ClapTrap::set_range(const int i)
+// {
+// 	_ranged_attack = i;
+// }
 
-void ClapTrap::set_armor(const int i)
-{
-	_armor_damage = i;
-}
+// void ClapTrap::set_armor(const int i)
+// {
+// 	_armor_damage = i;
+// }
 
-void ClapTrap::set_energy(const int i)
-{
-	_energy_points = i;
-}
+// void ClapTrap::set_energy(const int i)
+// {
+// 	_energy_points = i;
+// }
 
-void ClapTrap::set_maxenergy(const int i)
-{
-	_max_energy_points = i;
-}
+// void ClapTrap::set_maxenergy(const int i)
+// {
+// 	_max_energy_points = i;
+// }
 
-void ClapTrap::set_melee(const int i)
-{
-	_melee_attack = i;
-}
+// void ClapTrap::set_melee(const int i)
+// {
+// 	_melee_attack = i;
+// }
 
-void ClapTrap::set_name(const std::string name)
-{
-	_name = name;
-}
+// void ClapTrap::set_name(const std::string name)
+// {
+// 	_name = name;
+// }

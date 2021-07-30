@@ -27,14 +27,14 @@ public:
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 
-	void set_hp(const int i);
-	void set_maxhp(const int i);
-	void set_range(const int i);
-	void set_armor(const int i);
-	void set_energy(const int i);
-	void set_maxenergy(const int i);
-	void set_melee(const int i);
-	void set_name(const std::string name);
+	// void set_hp(const int i);
+	// void set_maxhp(const int i);
+	// void set_range(const int i);
+	// void set_armor(const int i);
+	// void set_energy(const int i);
+	// void set_maxenergy(const int i);
+	// void set_melee(const int i);
+	// void set_name(const std::string name);
 
 protected:
 	void set_up(void) const;
