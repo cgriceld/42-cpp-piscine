@@ -68,5 +68,15 @@ int main(void)
 	}
 	std::cout << "--------------\n";
 
+	std::cout << "STACK FUNCTIONS\n";
+	std::cout << "top element : " << m.top() << std::endl;
+	std::cout << "pop one element\n";
+	m.pop();
+	std::cout << "top element : " << m.top() << " and size : " << m.size() << std::endl;
+	m.push(77);
+	std::cout << "push 77, top element : " << m.top() << std::endl;
+	print_stack(m.cbegin(), m.cend(), m);
+	std::cout << "--------------\n";
+
 	return (0);
 }
