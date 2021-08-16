@@ -2,6 +2,8 @@
 
 42 С++ piscine.
 
+📌 According to subject, the code is limited by C++98 standard.
+
 Topics:
 
 * Module 0 - *basic stuff about language and OOP (classes, namespaces, streams, etc.)*
